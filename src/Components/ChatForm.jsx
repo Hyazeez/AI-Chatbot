@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { assests } from "../assets/assests";
 
-const ChatForm = ({ setChatHistory }) => {
+const ChatForm = ({ chatHistory, setChatHistory, generateBotResponse }) => {
   const inputRef = useRef();
 
   const handleFormSubmit = (e) => {
@@ -9,38 +9,32 @@ const ChatForm = ({ setChatHistory }) => {
     const userMessage = inputRef.current.value.trim();
     if (!userMessage) return;
 
-    // Add user message
     setChatHistory((history) => [
       ...history,
       { role: "user", text: userMessage },
+      { role: "model", text: "Thinking..." },
     ]);
 
     inputRef.current.value = "";
 
-    // Add bot "Thinking..." message
-    setTimeout(() => {
-      setChatHistory((history) => [
-        ...history,
-        { role: "model", text: "Thinking..." },
-      ]);
-    }, 500); // Optional delay
+    generateBotResponse([
+      ...chatHistory,
+      { role: "user", text: `Using the details provided above, please address this query: ${userMessage}` }
+    ]);
   };
 
   return (
-    <div>
-      <form action="#" className="chat-form" onSubmit={handleFormSubmit}>
-        <input
-          type="text"
-          placeholder="message"
-          className="message-input"
-          ref={inputRef}
-          required
-        />
-        <button className="send-btn">
-          <img src={assests.send} alt="send" />
-        </button>
-      </form>
-    </div>
+    <form className="chat-form" onSubmit={handleFormSubmit}>
+      <input
+        type="text"
+        placeholder="Type a message..."
+        className="message-input"
+        ref={inputRef}
+      />
+      <button className="send-btn" type="submit">
+        <img src={assests.send} alt="send" />
+      </button>
+    </form>
   );
 };
 

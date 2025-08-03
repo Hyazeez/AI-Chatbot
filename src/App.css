@@ -11,12 +11,22 @@
   border: 2px solid #ddd;
   border-radius: 16px;
   width: 350px;
-  height: 600px;
+  height: 550px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  position: relative;
+  position: fixed;
+  bottom: 50px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.chatbot-popup.hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
 }
 
 .chat-header {
@@ -195,4 +205,25 @@
   width: 25px;
   height: 25px;
   filter: invert(1);
+}
+
+.chatbot-toggler{
+  position: fixed;
+  bottom: 30px;
+  right: 35px;
+  border-radius: 50%;
+  border: none;
+  height: 70px;
+  width: 70px;
+  cursor: pointer;
+  background-color: #49d8cc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 7px;
+}
+
+.chatbot-toggler span{
+  position: absolute;
+  color: white;
 }
