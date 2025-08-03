@@ -1,17 +1,29 @@
 import React, { useRef } from "react";
 import { assests } from "../assets/assests";
 
-const ChatForm = ({setChatHistory}) => {
+const ChatForm = ({ setChatHistory }) => {
   const inputRef = useRef();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const userMessage = inputRef.current.value.trim();
     if (!userMessage) return;
-    
-    //Update chat history with the user's message
-    setChatHistory((history) => [...history, {role: "user", text: userMessage}]);
-    inputRef.current.value = ""; // Clear input after submission
+
+    // Add user message
+    setChatHistory((history) => [
+      ...history,
+      { role: "user", text: userMessage },
+    ]);
+
+    inputRef.current.value = "";
+
+    // Add bot "Thinking..." message
+    setTimeout(() => {
+      setChatHistory((history) => [
+        ...history,
+        { role: "model", text: "Thinking..." },
+      ]);
+    }, 500); // Optional delay
   };
 
   return (

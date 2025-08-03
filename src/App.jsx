@@ -3,6 +3,7 @@ import { assests } from "./assets/assests";
 import "./App.css";
 import ChatForm from "./Components/ChatForm";
 import ChatMessage from "./Components/ChatMessage";
+import Chatboticon from "./Components/Chatboticon";
 
 const App = () => {
   const [chatHistory, setChatHistory] = useState([]);
@@ -24,13 +25,7 @@ const App = () => {
         {/* --Chat Body-- */}
         <div className="chat-body">
           <div className="position">
-            <div className="bot-icon">
-              <img
-                src={assests.botnew}
-                alt="chatbot"
-                className="chatbot-img2"
-              />
-            </div>
+            <Chatboticon/>
             <div className="bot-message">
               <p className="message-text">
                 Hey there 👋
