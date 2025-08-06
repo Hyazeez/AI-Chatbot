@@ -1,6 +1,7 @@
 import React from "react";
 import { assests } from "../assets/assests";
-import ProductCard from "./Productcard";
+import ProductCard from "./Productcard/Productcard";
+import { convertTextToLinks } from "./Converttext";
 
 const ChatMessage = ({ chat }) => {
   // Single Product Card
@@ -34,7 +35,17 @@ const ChatMessage = ({ chat }) => {
         )}
 
         <div className={chat.role === "model" ? "bot-message" : "user-message"}>
-          <p className="message-text">{chat.text}</p>
+          {chat.role === "model" ? (
+            // Convert text to HTML with clickable links
+            <p
+              className="message-text"
+              dangerouslySetInnerHTML={{
+                __html: convertTextToLinks(chat.text)
+              }}
+            />
+          ) : (
+            <p className="message-text">{chat.text}</p>
+          )}
         </div>
 
         {chat.role === "user" && (

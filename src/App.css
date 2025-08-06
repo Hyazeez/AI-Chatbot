@@ -114,9 +114,10 @@
 
 .bot-message, .user-message {
   max-width: 80%;
-  margin-bottom: 12px;
-  padding: 10px 14px;
-  line-height: 1.4;
+  overflow-wrap: break-word;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
 }
 
 .chat-body .bot-message {
@@ -165,6 +166,11 @@
 .message-text {
   margin: 0;
   font-size: 0.95rem;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.5;
+  font-size: 16px;
+  padding: 10px;
 }
 
 .chat-footer {
