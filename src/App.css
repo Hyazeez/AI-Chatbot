@@ -186,11 +186,11 @@
 }
 
 .message-input {
-  flex: 1;
   padding: 10px 0px 10px 10px;
   border-radius: 25px;
   border: 1px solid #ccc;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  width: 180px;
 }
 
 .send-btn {
@@ -233,37 +233,4 @@
 .chatbot-toggler span{
   position: absolute;
   color: white;
-}
-
-@media screen and (max-width: 480px) {
-  .chat-footer {
-    flex-direction: row;
-    padding: 8px;
-  }
-
-  .chat-footer input {
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  .chat-footer button {
-    padding: 10px 14px;
-    font-size: 16px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .message-input {
-    font-size: 14px;
-    padding: 10px 14px;
-  }
-
-  .send-btn img {
-    width: 18px;
-    height: 18px;
-  }
-
-  .chat-form {
-    padding: 8px;
-  }
 }
