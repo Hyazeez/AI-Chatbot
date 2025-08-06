@@ -73,8 +73,8 @@ const App = () => {
               src={assests.close}
               alt="chat"
               className="toggler"
-              width={40}
-              height={40}
+              width={30}
+              height={30}
             />
           </span>
         ) : (
@@ -83,8 +83,8 @@ const App = () => {
               src={assests.chat}
               alt="close"
               className="toggler"
-              width={40}
-              height={40}
+              width={30}
+              height={30}
             />
           </span>
         )}
